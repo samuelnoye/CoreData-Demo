@@ -17,7 +17,9 @@ extension Info {
     }
     @NSManaged public var id: String?
     @NSManaged public var name: String?
-    @NSManaged public var price: Double?
+//    @NSManaged public var price: Double?
+//    @NSManaged public var quantity: Int?
+   // @NSManaged public var total: Double?
     @NSManaged public var createdAt: Date?
 
 }

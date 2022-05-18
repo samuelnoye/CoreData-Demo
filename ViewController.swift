@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return table
     }()
     
-    private var models  = [Info]()
+    private var models  = [Expenses]()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -34,10 +34,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.row]
+        let price: String = String(format: "%f", model.price)
+        let quantity: String = String(format: "%f", model.quantity)
+        let temp: Double
+        temp = Double(model.quantity) * model.price
+        let total: String = String(format: "%f", temp)
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = model.name
-        cell.textLabel?.text = model.price
-        cell.textLabel?.text = model.createdAt
+        cell.textLabel?.text = price
+        cell.textLabel?.text = quantity
+        cell.textLabel?.text = total
+        //cell.textLabel?.text = model.createdAt
         return cell
     }
     
@@ -45,7 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //get all items
     func getAllItems(){
         do{
-             models = try context.fetch(Info.fetchRequest())
+             models = try context.fetch(Expenses.fetchRequest())
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -54,14 +61,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     //create items
-    func createItems(name: String, price: Double){
-        let newItem = Info(context: context)
+    func createItems(name: String, price: Double, quantity: Int16){
+        let newItem = Expenses(context: context)
         newItem.name = name
         newItem.price = price
-        newItem.createdAt = Date()
+        newItem.quantity = quantity
         
         do{
-            let items = try context.fetch(Info.fetchRequest())
+            let items = try context.fetch(Expenses.fetchRequest())
         }catch{
             //error
         }        }

@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="UsersInfo" representedClassName="UsersInfo" syncable="YES" codeGenerationType="class">
-        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
+    <entity name="Expenses" representedClassName="Expenses" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="UsersInfo" representedClassName="UsersInfo" syncable="YES" codeGenerationType="class"/>
     <elements>
-        <element name="UsersInfo" positionX="-27" positionY="18" width="128" height="119"/>
+        <element name="UsersInfo" positionX="-27" positionY="18" width="128" height="29"/>
+        <element name="Expenses" positionX="-27" positionY="63" width="128" height="104"/>
+        <element name="Entity" positionX="-18" positionY="90" width="128" height="29"/>
     </elements>
 </model>
